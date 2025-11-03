@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import LoginModal from "@/components/molecules/LoginModal";
 import authService from "@/services/api/authService";
 import Home from "@/components/pages/Home";
 import OrderTracking from "@/components/pages/OrderTracking";
@@ -10,6 +9,7 @@ import Search from "@/components/pages/Search";
 import Cart from "@/components/pages/Cart";
 import RestaurantDetail from "@/components/pages/RestaurantDetail";
 import Orders from "@/components/pages/Orders";
+import LoginModal from "@/components/molecules/LoginModal";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -43,10 +43,10 @@ function App() {
     }
 };
 
-  return (
+return (
     <BrowserRouter>
       <div className="App">
-<Routes>
+        <Routes>
           <Route path="/" element={<Home currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
           <Route path="/cart" element={<Cart currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
           <Route path="/restaurant/:id" element={<RestaurantDetail currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
@@ -75,7 +75,7 @@ function App() {
           theme="light"
           style={{ zIndex: 9999 }}
         />
-      </div>
+</div>
     </BrowserRouter>
   );
 }
