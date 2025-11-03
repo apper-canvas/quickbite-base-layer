@@ -1,13 +1,18 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import cartService from "@/services/api/cartService";
-
+import orderService from "@/services/api/orderService";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import Cart from "@/components/pages/Cart";
+import Empty from "@/components/ui/Empty";
 const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const loadCartItems = async () => {
     try {
@@ -28,7 +33,7 @@ const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
       await cartService.updateQuantity(itemId, quantity);
     }
     loadCartItems();
-  };
+};
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -36,6 +41,49 @@ const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
 
   const calculateTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const handleCheckout = async () => {
+    if (cartItems.length === 0) {
+      toast.warning('Your cart is empty');
+      return;
+    }
+    
+    try {
+      toast.info('Processing your order...');
+      
+      // Calculate order totals
+      const subtotal = calculateTotal();
+      const deliveryFee = 40;
+      const total = subtotal + deliveryFee;
+      
+      // Create order from cart items
+      const orderData = {
+        items: cartItems.map(item => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          restaurant: item.restaurant
+        })),
+        subtotal,
+        deliveryFee,
+        total,
+        status: 'confirmed',
+        estimatedTime: '25-30 minutes'
+      };
+      
+      const newOrder = await orderService.create(orderData);
+      
+      // Clear cart after successful order
+      await cartService.clearCart();
+toast.success('Order placed successfully!');
+      // Close drawer and navigate
+      onClose();
+      navigate(`/orders/${newOrder.Id}/track`);
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      toast.error('Failed to place order. Please try again.');
+    }
   };
 
   useEffect(() => {
@@ -159,6 +207,7 @@ const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
             </div>
 
             {/* Footer */}
+{/* Footer */}
             {cartItems.length > 0 && (
               <div className="border-t p-4 bg-gray-50">
                 <div className="mb-4">
@@ -180,14 +229,11 @@ const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
                   variant="primary"
                   size="lg"
                   className="w-full"
-                  onClick={() => {
-                    onCheckout();
-                    onClose();
-                  }}
+                  onClick={handleCheckout}
+                  disabled={cartItems.length === 0}
                 >
                   Proceed to Checkout
                 </Button>
-              </div>
             )}
           </motion.div>
         </>

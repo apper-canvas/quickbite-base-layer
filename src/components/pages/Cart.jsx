@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Button from '@/components/atoms/Button';
-import Card from '@/components/atoms/Card';
-import ApperIcon from '@/components/ApperIcon';
-import Loading from '@/components/ui/Loading';
-import Empty from '@/components/ui/Empty';
-import Error from '@/components/ui/Error';
-import cartService from '@/services/api/cartService';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import cartService from "@/services/api/cartService";
+import orderService from "@/services/api/orderService";
+import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import Card from "@/components/atoms/Card";
+import Loading from "@/components/ui/Loading";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -86,15 +87,49 @@ const removeItem = async (itemId) => {
     return calculateSubtotal() + calculateDeliveryFee();
   };
 
-  const handleCheckout = () => {
+const handleCheckout = async () => {
     if (cartItems.length === 0) {
       toast.warning('Your cart is empty');
       return;
     }
     
-    toast.success('Proceeding to checkout...');
-    // Navigate to checkout page when implemented
-    // navigate('/checkout');
+    try {
+      setLoading(true);
+      toast.info('Processing your order...');
+      
+      // Calculate order totals
+      const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+      const deliveryFee = 40;
+      const total = subtotal + deliveryFee;
+      
+      // Create order from cart items
+      const orderData = {
+        items: cartItems.map(item => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          restaurant: item.restaurant
+        })),
+        subtotal,
+        deliveryFee,
+        total,
+        status: 'confirmed',
+        estimatedTime: '25-30 minutes'
+      };
+      
+      const newOrder = await orderService.create(orderData);
+      
+      // Clear cart after successful order
+      await cartService.clearCart();
+      
+      toast.success('Order placed successfully!');
+      navigate(`/orders/${newOrder.Id}/track`);
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      toast.error('Failed to place order. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (loading) {
