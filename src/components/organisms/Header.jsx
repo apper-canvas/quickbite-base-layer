@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
-import Profile from "@/components/pages/Profile";
-import Orders from "@/components/pages/Orders";
 import LocationPicker from "@/components/molecules/LocationPicker";
 import SearchBar from "@/components/molecules/SearchBar";
 
