@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import cartService from "@/services/api/cartService";
 import orderService from "@/services/api/orderService";
 import ApperIcon from "@/components/ApperIcon";
@@ -45,12 +45,12 @@ const CartDrawer = ({ isOpen, onClose, onCheckout }) => {
 
   const handleCheckout = async () => {
     if (cartItems.length === 0) {
-      toast.warning('Your cart is empty');
+toast.warn('Your cart is empty');
       return;
     }
     
     try {
-      toast.info('Processing your order...');
+toast.info('Processing your order...');
       
       // Calculate order totals
       const subtotal = calculateTotal();
@@ -82,7 +82,7 @@ toast.success('Order placed successfully!');
       navigate(`/orders/${newOrder.Id}/track`);
     } catch (error) {
       console.error('Checkout failed:', error);
-      toast.error('Failed to place order. Please try again.');
+toast.error('Failed to place order. Please try again.');
     }
   };
 
