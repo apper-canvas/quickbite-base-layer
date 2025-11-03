@@ -1,4 +1,3 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import authService from "@/services/api/authService";
@@ -10,6 +9,8 @@ import Cart from "@/components/pages/Cart";
 import RestaurantDetail from "@/components/pages/RestaurantDetail";
 import Orders from "@/components/pages/Orders";
 import LoginModal from "@/components/molecules/LoginModal";
+// This file is now only used for legacy compatibility
+// All routing logic has been moved to src/router/index.jsx and src/components/organisms/Layout.jsx
 
 // Protected Route Component
 function ProtectedRoute({ children, currentUser, onShowLogin }) {
@@ -27,77 +28,13 @@ function ProtectedRoute({ children, currentUser, onShowLogin }) {
   return children;
 }
 
+// All app-level state and routing logic moved to Layout component
+// This component is no longer used in the new router architecture
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-
-  useEffect(() => {
-    // Check for existing session on app load
-    const user = authService.getCurrentUser();
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, []);
-
-  const handleLogin = async (email, password) => {
-    try {
-      const user = await authService.login(email, password);
-      setCurrentUser(user);
-      toast.success(`Welcome back, ${user.name}!`);
-    } catch (error) {
-      throw error; // Re-throw to be handled by LoginModal
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await authService.logout();
-      setCurrentUser(null);
-      toast.success('Successfully logged out');
-    } catch (error) {
-      toast.error('Logout failed');
-    }
-};
-
-return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-          <Route path="/cart" element={<Cart currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-          <Route path="/restaurant/:id" element={<RestaurantDetail currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-          <Route path="/orders" element={<Orders currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-          <Route path="/orders/:orderId/track" element={<OrderTracking currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-<Route path="/profile" element={
-            <ProtectedRoute currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)}>
-              <Profile currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />
-            </ProtectedRoute>
-          } />
-          <Route path="/search" element={<Search currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-        </Routes>
-        
-        <LoginModal
-          isOpen={showLoginModal}
-          onClose={() => setShowLoginModal(false)}
-          onLogin={handleLogin}
-        />
-        
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-          style={{ zIndex: 9999 }}
-        />
-</div>
-    </BrowserRouter>
+  return (
+    <div>
+      {/* This component is deprecated - routing now handled by RouterProvider */}
+    </div>
   );
 }
-
 export default App;
