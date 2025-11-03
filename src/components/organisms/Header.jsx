@@ -84,21 +84,7 @@ const Header = ({ currentUser = null, onLogout = () => {}, onShowLogin = () => {
               <ApperIcon name="Menu" className="w-5 h-5" />
             </Button>
           </div>
-        </div>
-
-        {/* Bottom Row - Location and Search */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-end">
-          <div className="lg:col-span-1">
-            <LocationPicker
-              currentLocation={currentLocation}
-              onLocationSelect={handleLocationSelect}
-            />
-          </div>
-          
-          <div className="lg:col-span-2">
-            <SearchBar onSearch={handleSearch} />
-          </div>
-        </div>
+</div>
       </div>
     </header>
   );
