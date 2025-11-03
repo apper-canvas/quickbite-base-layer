@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
@@ -160,11 +161,35 @@ const OrderTracker = ({ orderId }) => {
       </Card>
 
       {/* Action Buttons */}
-      <div className="flex gap-3">
-        <Button variant="outline" className="flex-1" icon="Phone">
+<div className="flex gap-3">
+        <Button 
+          variant="outline" 
+          className="flex-1" 
+          icon="Phone"
+          onClick={() => {
+            if (order?.restaurant?.phone) {
+              window.open(`tel:${order.restaurant.phone}`, '_self');
+              toast.success("Opening phone dialer...");
+            } else {
+              toast.info("Restaurant phone number not available. Please contact through chat support.");
+            }
+          }}
+        >
           Call Restaurant
         </Button>
-        <Button variant="outline" className="flex-1" icon="MessageCircle">
+        <Button 
+          variant="outline" 
+          className="flex-1" 
+          icon="MessageCircle"
+          onClick={() => {
+            // Redirect to support chat or show contact info
+            toast.info("Opening support chat... You can also call our support at 1-800-QUICKBITE");
+            // In a real app, this would open a chat widget or redirect to support page
+            setTimeout(() => {
+              window.open('mailto:support@quickbite.com?subject=Order Support - Order #' + (order?.id || 'Unknown'), '_blank');
+            }, 1000);
+          }}
+        >
           Chat Support
         </Button>
       </div>
