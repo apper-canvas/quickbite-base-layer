@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1001,
+    "userId": "user1",
+    "restaurantId": 1,
+    "restaurantName": "Pizza Palace",
+    "items": [
+      {
+        "Id": 1,
+        "name": "Margherita Pizza",
+        "quantity": 1,
+        "price": 299,
+        "customizations": ["Large"]
+      },
+      {
+        "Id": 3,
+        "name": "Garlic Bread",
+        "quantity": 1,
+        "price": 149,
+        "customizations": []
+      }
+    ],
+    "status": "delivered",
+    "deliveryAddress": {
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "landmark": "Near Central Park",
+      "city": "Bangalore"
+    },
+    "subtotal": 448,
+    "taxes": 40,
+    "deliveryFee": 40,
+    "discount": 0,
+    "total": 528,
+    "paymentMethod": "card",
+    "paymentStatus": "completed",
+    "deliveryPartnerId": "partner1",
+    "estimatedDeliveryTime": "2024-01-15T13:30:00Z",
+    "placedAt": "2024-01-15T12:45:00Z",
+    "completedAt": "2024-01-15T13:25:00Z",
+    "rating": 5,
+    "review": "Amazing pizza! Hot and fresh delivery."
+  },
+  {
+    "Id": 1002,
+    "userId": "user1",
+    "restaurantId": 2,
+    "restaurantName": "Spice Garden",
+    "items": [
+      {
+        "Id": 4,
+        "name": "Butter Chicken",
+        "quantity": 1,
+        "price": 349,
+        "customizations": ["Medium Spice"]
+      },
+      {
+        "Id": 6,
+        "name": "Basmati Rice",
+        "quantity": 2,
+        "price": 99,
+        "customizations": []
+      }
+    ],
+    "status": "preparing",
+    "deliveryAddress": {
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "landmark": "Near Central Park",
+      "city": "Bangalore"
+    },
+    "subtotal": 547,
+    "taxes": 49,
+    "deliveryFee": 35,
+    "discount": 50,
+    "total": 581,
+    "paymentMethod": "upi",
+    "paymentStatus": "completed",
+    "deliveryPartnerId": "partner2",
+    "estimatedDeliveryTime": "2024-01-16T14:45:00Z",
+    "placedAt": "2024-01-16T13:50:00Z",
+    "completedAt": null,
+    "rating": null,
+    "review": null
+  },
+  {
+    "Id": 1003,
+    "userId": "user1",
+    "restaurantId": 4,
+    "restaurantName": "Burger Junction",
+    "items": [
+      {
+        "Id": 9,
+        "name": "Classic Beef Burger",
+        "quantity": 2,
+        "price": 299,
+        "customizations": ["Large", "Extra Cheese"]
+      },
+      {
+        "Id": 10,
+        "name": "Veggie Deluxe Burger",
+        "quantity": 1,
+        "price": 249,
+        "customizations": ["Regular"]
+      }
+    ],
+    "status": "delivered",
+    "deliveryAddress": {
+      "addressLine1": "456 Business District",
+      "addressLine2": "Floor 15, Tower A",
+      "landmark": "Opposite Metro Station",
+      "city": "Bangalore"
+    },
+    "subtotal": 847,
+    "taxes": 76,
+    "deliveryFee": 0,
+    "discount": 100,
+    "total": 823,
+    "paymentMethod": "wallet",
+    "paymentStatus": "completed",
+    "deliveryPartnerId": "partner3",
+    "estimatedDeliveryTime": "2024-01-14T20:30:00Z",
+    "placedAt": "2024-01-14T19:45:00Z",
+    "completedAt": "2024-01-14T20:20:00Z",
+    "rating": 4,
+    "review": "Good burgers, delivery was quick!"
+  },
+  {
+    "Id": 1004,
+    "userId": "user1",
+    "restaurantId": 3,
+    "restaurantName": "Dragon Wok",
+    "items": [
+      {
+        "Id": 7,
+        "name": "Chicken Fried Rice",
+        "quantity": 1,
+        "price": 249,
+        "customizations": ["Spicy"]
+      },
+      {
+        "Id": 8,
+        "name": "Vegetable Manchurian",
+        "quantity": 1,
+        "price": 199,
+        "customizations": ["With Gravy"]
+      }
+    ],
+    "status": "out_for_delivery",
+    "deliveryAddress": {
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "landmark": "Near Central Park",
+      "city": "Bangalore"
+    },
+    "subtotal": 448,
+    "taxes": 40,
+    "deliveryFee": 50,
+    "discount": 0,
+    "total": 538,
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "deliveryPartnerId": "partner1",
+    "estimatedDeliveryTime": "2024-01-16T21:15:00Z",
+    "placedAt": "2024-01-16T20:30:00Z",
+    "completedAt": null,
+    "rating": null,
+    "review": null
+  },
+  {
+    "Id": 1005,
+    "userId": "user1",
+    "restaurantId": 1,
+    "restaurantName": "Pizza Palace",
+    "items": [
+      {
+        "Id": 2,
+        "name": "Pepperoni Pizza",
+        "quantity": 1,
+        "price": 399,
+        "customizations": ["Large"]
+      }
+    ],
+    "status": "cancelled",
+    "deliveryAddress": {
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "landmark": "Near Central Park",
+      "city": "Bangalore"
+    },
+    "subtotal": 499,
+    "taxes": 45,
+    "deliveryFee": 40,
+    "discount": 0,
+    "total": 584,
+    "paymentMethod": "card",
+    "paymentStatus": "refunded",
+    "deliveryPartnerId": null,
+    "estimatedDeliveryTime": null,
+    "placedAt": "2024-01-13T18:00:00Z",
+    "completedAt": null,
+    "rating": null,
+    "review": null
+  }
+]

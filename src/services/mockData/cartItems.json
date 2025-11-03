@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "name": "Margherita Pizza",
+    "description": "Classic pizza with fresh mozzarella, tomato sauce, and basil leaves",
+    "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=300&h=200&fit=crop",
+    "price": 299,
+    "quantity": 2,
+    "isVeg": true,
+    "restaurantId": 1,
+    "restaurantName": "Pizza Palace",
+    "customizations": ["Large", "Extra Cheese"]
+  },
+  {
+    "Id": 2,
+    "name": "Garlic Bread",
+    "description": "Freshly baked bread with garlic butter and herbs",
+    "image": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=300&h=200&fit=crop",
+    "price": 149,
+    "quantity": 1,
+    "isVeg": true,
+    "restaurantId": 1,
+    "restaurantName": "Pizza Palace",
+    "customizations": []
+  },
+  {
+    "Id": 3,
+    "name": "Butter Chicken",
+    "description": "Tender chicken in creamy tomato-based curry with aromatic spices",
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300&h=200&fit=crop",
+    "price": 349,
+    "quantity": 1,
+    "isVeg": false,
+    "restaurantId": 2,
+    "restaurantName": "Spice Garden",
+    "customizations": ["Medium Spice"]
+  }
+]

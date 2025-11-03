@@ -1,0 +1,382 @@
+[
+  {
+    "Id": 1,
+    "name": "Pizza Palace",
+    "description": "Authentic Italian pizza with fresh ingredients and traditional recipes. Wood-fired oven pizzas that bring the taste of Italy to your doorstep.",
+    "coverImage": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop",
+    "cuisines": ["Italian", "American"],
+    "rating": 4.5,
+    "reviewCount": 1250,
+    "location": {
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "city": "Bangalore",
+      "area": "Koramangala"
+    },
+    "deliveryTime": "25-35 min",
+    "minimumOrder": 200,
+    "deliveryFee": 40,
+    "isOpen": true,
+    "openingHours": {
+      "monday": "11:00-23:00",
+      "tuesday": "11:00-23:00",
+      "wednesday": "11:00-23:00",
+      "thursday": "11:00-23:00",
+      "friday": "11:00-23:00",
+      "saturday": "11:00-23:00",
+      "sunday": "12:00-22:00"
+    },
+    "ownerId": "owner1",
+    "menu": [
+      {
+        "Id": 1,
+        "name": "Margherita Pizza",
+        "description": "Classic pizza with fresh mozzarella, tomato sauce, and basil leaves",
+        "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=300&h=200&fit=crop",
+        "price": 299,
+        "category": "Pizza",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Size", "options": ["Regular", "Large"], "prices": [0, 100]},
+          {"name": "Extra Cheese", "price": 50}
+        ],
+        "dietaryInfo": ["Vegetarian"]
+      },
+      {
+        "Id": 2,
+        "name": "Pepperoni Pizza",
+        "description": "Classic pepperoni with mozzarella cheese and tomato sauce",
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300&h=200&fit=crop",
+        "price": 399,
+        "category": "Pizza",
+        "isVeg": false,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Size", "options": ["Regular", "Large"], "prices": [0, 100]}
+        ],
+        "dietaryInfo": ["Contains Pork"]
+      },
+      {
+        "Id": 3,
+        "name": "Garlic Bread",
+        "description": "Freshly baked bread with garlic butter and herbs",
+        "image": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=300&h=200&fit=crop",
+        "price": 149,
+        "category": "Sides",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [],
+        "dietaryInfo": ["Vegetarian"]
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "name": "Spice Garden",
+    "description": "Authentic Indian cuisine with aromatic spices and traditional cooking methods. Experience the rich flavors of India's diverse culinary heritage.",
+    "coverImage": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop",
+    "cuisines": ["Indian", "North Indian", "South Indian"],
+    "rating": 4.3,
+    "reviewCount": 890,
+    "location": {
+      "latitude": 12.9352,
+      "longitude": 77.6245,
+      "city": "Bangalore",
+      "area": "HSR Layout"
+    },
+    "deliveryTime": "30-40 min",
+    "minimumOrder": 150,
+    "deliveryFee": 35,
+    "isOpen": true,
+    "openingHours": {
+      "monday": "12:00-23:00",
+      "tuesday": "12:00-23:00",
+      "wednesday": "12:00-23:00",
+      "thursday": "12:00-23:00",
+      "friday": "12:00-23:30",
+      "saturday": "12:00-23:30",
+      "sunday": "12:00-22:30"
+    },
+    "ownerId": "owner2",
+    "menu": [
+      {
+        "Id": 4,
+        "name": "Butter Chicken",
+        "description": "Tender chicken in creamy tomato-based curry with aromatic spices",
+        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300&h=200&fit=crop",
+        "price": 349,
+        "category": "Main Course",
+        "isVeg": false,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Spice Level", "options": ["Mild", "Medium", "Spicy"], "prices": [0, 0, 0]}
+        ],
+        "dietaryInfo": ["Contains Dairy"]
+      },
+      {
+        "Id": 5,
+        "name": "Paneer Butter Masala",
+        "description": "Soft paneer cubes in rich creamy tomato gravy",
+        "image": "https://images.unsplash.com/photo-1631452180539-96aca7d48617?w=300&h=200&fit=crop",
+        "price": 279,
+        "category": "Main Course",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Spice Level", "options": ["Mild", "Medium", "Spicy"], "prices": [0, 0, 0]}
+        ],
+        "dietaryInfo": ["Vegetarian", "Contains Dairy"]
+      },
+      {
+        "Id": 6,
+        "name": "Basmati Rice",
+        "description": "Fragrant long-grain basmati rice, perfectly steamed",
+        "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&h=200&fit=crop",
+        "price": 99,
+        "category": "Rice",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [],
+        "dietaryInfo": ["Vegetarian", "Gluten-Free"]
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "name": "Dragon Wok",
+    "description": "Authentic Chinese cuisine with traditional wok cooking and fresh ingredients. From spicy Szechuan to mild Cantonese flavors.",
+    "coverImage": "https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=600&h=400&fit=crop",
+    "cuisines": ["Chinese", "Asian"],
+    "rating": 4.2,
+    "reviewCount": 743,
+    "location": {
+      "latitude": 12.9698,
+      "longitude": 77.6482,
+      "city": "Bangalore",
+      "area": "Whitefield"
+    },
+    "deliveryTime": "35-45 min",
+    "minimumOrder": 250,
+    "deliveryFee": 50,
+    "isOpen": true,
+    "openingHours": {
+      "monday": "11:30-22:30",
+      "tuesday": "11:30-22:30",
+      "wednesday": "11:30-22:30",
+      "thursday": "11:30-22:30",
+      "friday": "11:30-23:00",
+      "saturday": "11:30-23:00",
+      "sunday": "12:00-22:00"
+    },
+    "ownerId": "owner3",
+    "menu": [
+      {
+        "Id": 7,
+        "name": "Chicken Fried Rice",
+        "description": "Wok-tossed rice with chicken, vegetables and Chinese seasonings",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&h=200&fit=crop",
+        "price": 249,
+        "category": "Rice",
+        "isVeg": false,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Spice Level", "options": ["Mild", "Medium", "Spicy"], "prices": [0, 0, 0]}
+        ],
+        "dietaryInfo": []
+      },
+      {
+        "Id": 8,
+        "name": "Vegetable Manchurian",
+        "description": "Deep-fried vegetable balls in tangy Manchurian sauce",
+        "image": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&h=200&fit=crop",
+        "price": 199,
+        "category": "Appetizer",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Gravy", "options": ["Dry", "With Gravy"], "prices": [0, 20]}
+        ],
+        "dietaryInfo": ["Vegetarian"]
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "name": "Burger Junction",
+    "description": "Juicy gourmet burgers made with premium ingredients and served with crispy fries. American classics with an Indian twist.",
+    "coverImage": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=400&fit=crop",
+    "cuisines": ["American", "Fast Food"],
+    "rating": 4.4,
+    "reviewCount": 1156,
+    "location": {
+      "latitude": 12.9279,
+      "longitude": 77.6271,
+      "city": "Bangalore",
+      "area": "BTM Layout"
+    },
+    "deliveryTime": "20-30 min",
+    "minimumOrder": 200,
+    "deliveryFee": 0,
+    "isOpen": true,
+    "openingHours": {
+      "monday": "11:00-23:00",
+      "tuesday": "11:00-23:00",
+      "wednesday": "11:00-23:00",
+      "thursday": "11:00-23:00",
+      "friday": "11:00-00:00",
+      "saturday": "11:00-00:00",
+      "sunday": "12:00-23:00"
+    },
+    "ownerId": "owner4",
+    "menu": [
+      {
+        "Id": 9,
+        "name": "Classic Beef Burger",
+        "description": "Juicy beef patty with lettuce, tomato, onion and special sauce",
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop",
+        "price": 299,
+        "category": "Burgers",
+        "isVeg": false,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Size", "options": ["Regular", "Large"], "prices": [0, 50]},
+          {"name": "Extra Cheese", "price": 40}
+        ],
+        "dietaryInfo": []
+      },
+      {
+        "Id": 10,
+        "name": "Veggie Deluxe Burger",
+        "description": "Grilled vegetable patty with fresh veggies and mayo",
+        "image": "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=300&h=200&fit=crop",
+        "price": 249,
+        "category": "Burgers",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Size", "options": ["Regular", "Large"], "prices": [0, 50]}
+        ],
+        "dietaryInfo": ["Vegetarian"]
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "name": "Thai Orchid",
+    "description": "Authentic Thai cuisine with fresh herbs and traditional recipes. From mild coconut curries to spicy tom yum soups.",
+    "coverImage": "https://images.unsplash.com/photo-1559847844-d7b37559b05e?w=600&h=400&fit=crop",
+    "cuisines": ["Thai", "Asian"],
+    "rating": 4.6,
+    "reviewCount": 567,
+    "location": {
+      "latitude": 12.9698,
+      "longitude": 77.5986,
+      "city": "Bangalore",
+      "area": "Indiranagar"
+    },
+    "deliveryTime": "40-50 min",
+    "minimumOrder": 300,
+    "deliveryFee": 45,
+    "isOpen": false,
+    "openingHours": {
+      "monday": "12:00-22:00",
+      "tuesday": "12:00-22:00",
+      "wednesday": "12:00-22:00",
+      "thursday": "12:00-22:00",
+      "friday": "12:00-22:30",
+      "saturday": "12:00-22:30",
+      "sunday": "12:00-21:30"
+    },
+    "ownerId": "owner5",
+    "menu": [
+      {
+        "Id": 11,
+        "name": "Tom Yum Soup",
+        "description": "Spicy and sour Thai soup with prawns, mushrooms and herbs",
+        "image": "https://images.unsplash.com/photo-1547928576-efde7432394a?w=300&h=200&fit=crop",
+        "price": 199,
+        "category": "Soup",
+        "isVeg": false,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Spice Level", "options": ["Mild", "Medium", "Spicy"], "prices": [0, 0, 0]}
+        ],
+        "dietaryInfo": ["Contains Seafood"]
+      },
+      {
+        "Id": 12,
+        "name": "Pad Thai",
+        "description": "Stir-fried rice noodles with tofu, bean sprouts and tamarind sauce",
+        "image": "https://images.unsplash.com/photo-1559314809-0f31657def5e?w=300&h=200&fit=crop",
+        "price": 279,
+        "category": "Noodles",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Protein", "options": ["Tofu", "Chicken", "Prawns"], "prices": [0, 50, 80]}
+        ],
+        "dietaryInfo": ["Vegetarian (with tofu)"]
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "name": "Taco Fiesta",
+    "description": "Vibrant Mexican flavors with fresh ingredients and bold spices. Authentic tacos, burritos and quesadillas made daily.",
+    "coverImage": "https://images.unsplash.com/photo-1565299585323-38174c32346b?w=600&h=400&fit=crop",
+    "cuisines": ["Mexican", "American"],
+    "rating": 4.1,
+    "reviewCount": 432,
+    "location": {
+      "latitude": 12.9716,
+      "longitude": 77.6411,
+      "city": "Bangalore",
+      "area": "Marathahalli"
+    },
+    "deliveryTime": "30-40 min",
+    "minimumOrder": 250,
+    "deliveryFee": 40,
+    "isOpen": true,
+    "openingHours": {
+      "monday": "12:00-23:00",
+      "tuesday": "12:00-23:00",
+      "wednesday": "12:00-23:00",
+      "thursday": "12:00-23:00",
+      "friday": "12:00-23:30",
+      "saturday": "12:00-23:30",
+      "sunday": "12:00-22:30"
+    },
+    "ownerId": "owner6",
+    "menu": [
+      {
+        "Id": 13,
+        "name": "Chicken Tacos",
+        "description": "Soft shell tacos with grilled chicken, salsa and sour cream",
+        "image": "https://images.unsplash.com/photo-1565299585323-38174c32346b?w=300&h=200&fit=crop",
+        "price": 249,
+        "category": "Tacos",
+        "isVeg": false,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Quantity", "options": ["2 pieces", "4 pieces"], "prices": [0, 120]}
+        ],
+        "dietaryInfo": []
+      },
+      {
+        "Id": 14,
+        "name": "Veggie Burrito",
+        "description": "Large tortilla filled with beans, rice, vegetables and cheese",
+        "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=300&h=200&fit=crop",
+        "price": 299,
+        "category": "Burritos",
+        "isVeg": true,
+        "isAvailable": true,
+        "customizations": [
+          {"name": "Size", "options": ["Regular", "Large"], "prices": [0, 80]}
+        ],
+        "dietaryInfo": ["Vegetarian"]
+      }
+    ]
+  }
+]
