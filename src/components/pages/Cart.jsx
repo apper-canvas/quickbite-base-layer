@@ -20,11 +20,11 @@ const Cart = () => {
     loadCartItems();
   }, []);
 
-  const loadCartItems = async () => {
+const loadCartItems = async () => {
     try {
       setLoading(true);
       setError(null);
-      const items = await cartService.getAll();
+      const items = await cartService.getCartItems();
       setCartItems(items);
     } catch (err) {
       setError('Failed to load cart items');
@@ -59,10 +59,10 @@ const Cart = () => {
     }
   };
 
-  const removeItem = async (itemId) => {
+const removeItem = async (itemId) => {
     try {
       setUpdating(itemId);
-      await cartService.delete(itemId);
+      await cartService.removeItem(itemId);
       setCartItems(prev => prev.filter(item => item.Id !== itemId));
       toast.success('Item removed from cart');
     } catch (err) {
