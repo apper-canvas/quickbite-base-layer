@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Header from "@/components/organisms/Header";
-import Card from "@/components/atoms/Card";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
 import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
-import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
+import Card from "@/components/atoms/Card";
+import Header from "@/components/organisms/Header";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -53,12 +53,21 @@ const Profile = () => {
     }
   ]);
 
-  const tabs = [
+const tabs = [
     { id: "profile", label: "Profile", icon: "User" },
     { id: "addresses", label: "Addresses", icon: "MapPin" },
     { id: "payments", label: "Payments", icon: "CreditCard" },
     { id: "preferences", label: "Preferences", icon: "Settings" }
   ];
+
+const handleLogout = async () => {
+    if (confirm('Are you sure you want to logout?')) {
+      // Clear user data and redirect to home
+      localStorage.removeItem('authToken');
+      sessionStorage.clear();
+      window.location.href = '/';
+    }
+  };
 
   const handleProfileUpdate = () => {
     console.log("Profile updated:", profileData);
@@ -184,7 +193,7 @@ const Profile = () => {
           </div>
         );
 
-      case "preferences":
+case "preferences":
         return (
           <div className="space-y-6">
             <Card className="p-4">
@@ -212,6 +221,20 @@ const Profile = () => {
                 <Badge variant="default">Gluten-Free</Badge>
                 <Badge variant="default">Vegan</Badge>
                 <Badge variant="default">Keto</Badge>
+              </div>
+            </Card>
+
+            <Card className="p-4">
+              <h4 className="font-medium text-secondary mb-3">Account</h4>
+              <div className="space-y-3">
+                <Button 
+                  variant="outline" 
+                  className="w-full text-red-600 border-red-200 hover:bg-red-50"
+                  icon="LogOut"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
               </div>
             </Card>
           </div>

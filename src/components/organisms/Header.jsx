@@ -1,11 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "@/components/atoms/Button";
-import SearchBar from "@/components/molecules/SearchBar";
-import LocationPicker from "@/components/molecules/LocationPicker";
 import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import Profile from "@/components/pages/Profile";
+import Orders from "@/components/pages/Orders";
+import LocationPicker from "@/components/molecules/LocationPicker";
+import SearchBar from "@/components/molecules/SearchBar";
 
-const Header = () => {
+const Header = ({ currentUser = null, onLogout = () => {}, onShowLogin = () => {} }) => {
   const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState("Bangalore");
   const [cartItemCount] = useState(3); // This would come from global state
@@ -36,13 +38,35 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6">
+<nav className="hidden md:flex items-center gap-6">
               <Link to="/orders" className="text-secondary hover:text-primary transition-colors font-medium">
                 Orders
               </Link>
               <Link to="/profile" className="text-secondary hover:text-primary transition-colors font-medium">
                 Profile
               </Link>
+              {currentUser ? (
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-secondary">Hi, {currentUser.name}</span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={onLogout}
+                    icon="LogOut"
+                  >
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={onShowLogin}
+                  icon="User"
+                >
+                  Login
+                </Button>
+              )}
             </nav>
 
             {/* Cart Button */}
