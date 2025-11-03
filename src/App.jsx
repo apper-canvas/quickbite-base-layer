@@ -1,18 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Home from "@/components/pages/Home";
+import Cart from "@/components/pages/Cart";
 import RestaurantDetail from "@/components/pages/RestaurantDetail";
 import Orders from "@/components/pages/Orders";
 import OrderTracking from "@/components/pages/OrderTracking";
 import Profile from "@/components/pages/Profile";
 import Search from "@/components/pages/Search";
-
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes>
+<Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/restaurant/:id" element={<RestaurantDetail />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/orders/:orderId/track" element={<OrderTracking />} />
