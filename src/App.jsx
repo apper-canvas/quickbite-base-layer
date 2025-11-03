@@ -11,6 +11,22 @@ import RestaurantDetail from "@/components/pages/RestaurantDetail";
 import Orders from "@/components/pages/Orders";
 import LoginModal from "@/components/molecules/LoginModal";
 
+// Protected Route Component
+function ProtectedRoute({ children, currentUser, onShowLogin }) {
+  useEffect(() => {
+    if (!currentUser) {
+      toast.warning('Please log in to access your profile');
+      onShowLogin();
+    }
+  }, [currentUser, onShowLogin]);
+
+  if (!currentUser) {
+    return null; // Return null while login modal is shown
+  }
+
+  return children;
+}
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -52,7 +68,11 @@ return (
           <Route path="/restaurant/:id" element={<RestaurantDetail currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
           <Route path="/orders" element={<Orders currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
           <Route path="/orders/:orderId/track" element={<OrderTracking currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
-          <Route path="/profile" element={<Profile currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
+<Route path="/profile" element={
+            <ProtectedRoute currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)}>
+              <Profile currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />
+            </ProtectedRoute>
+          } />
           <Route path="/search" element={<Search currentUser={currentUser} onShowLogin={() => setShowLoginModal(true)} onLogout={handleLogout} />} />
         </Routes>
         
